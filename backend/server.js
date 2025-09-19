@@ -18,6 +18,7 @@ const leaveRoutes = require('./routes/leaves');
 const eventRoutes = require('./routes/events');
 const notificationRoutes = require('./routes/notifications');
 const dashboardRoutes = require('./routes/dashboard');
+const communityRoutes = require('./routes/communities');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -76,6 +77,7 @@ app.use('/api/leaves', leaveRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/communities', communityRoutes);
 
 // 404 handler
 app.use('/api/*', (req, res) => {

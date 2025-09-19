@@ -14,6 +14,9 @@ import Profile from './pages/Profile'
 import Communities from './pages/Communities'
 import Calendar from './pages/Calendar'
 import LoadingSpinner from './components/LoadingSpinner'
+import Start from './pages/Start'
+import AdminDashboard from './pages/AdminDashboard'
+import CommunityAdmin from './pages/CommunityAdmin'
 
 function App() {
   const { user, loading } = useAuth()
@@ -29,9 +32,10 @@ function App() {
   if (!user) {
     return (
       <Routes>
+        <Route path="/" element={<Start />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     )
   }
@@ -41,6 +45,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        {user?.role === 'admin' && (
+          <>
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/communities/:id" element={<CommunityAdmin />} />
+          </>
+        )}
         <Route path="/communities" element={<Communities />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/tasks" element={<Tasks />} />

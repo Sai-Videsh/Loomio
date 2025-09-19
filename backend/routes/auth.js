@@ -1,3 +1,12 @@
+const express = require('express');
+const { body, validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { pool } = require('../config/database');
+const { optionalAuth } = require('../middleware/auth');
+
+const router = express.Router();
+
 // Create community + admin
 router.post('/communities',
   [
@@ -170,3 +179,5 @@ router.post('/login',
     }
   }
 );
+
+module.exports = router;
