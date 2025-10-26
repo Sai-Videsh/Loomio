@@ -132,16 +132,16 @@ const Calendar = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 md:p-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-transparent p-3 sm:p-4 md:p-6">
       <div className="w-full max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6">
+        <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Calendar</h1>
               <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Manage your community events and schedule</p>
             </div>
-            <button className="flex items-center justify-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors text-sm">
+            <button className="btn-hover btn-primary flex items-center justify-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors text-sm">
               <PlusIcon className="w-4 h-4 mr-2" />
               Create Event
             </button>
@@ -151,7 +151,7 @@ const Calendar = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">
           {/* Main Calendar */}
           <div className="lg:col-span-3">
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border">
+            <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border">
               {/* Calendar Header */}
               <div className="flex items-center justify-between p-6 border-b">
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -199,7 +199,7 @@ const Calendar = () => {
                     return (
                       <div
                         key={index}
-                        className={`min-h-[120px] p-2 border border-gray-100 dark:border-gray-700 rounded-lg transition-all ${
+                        className={`card-hover min-h-[120px] p-2 border border-gray-100 dark:border-gray-700 rounded-lg transition-all ${
                           date ? 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700' : 'bg-gray-50 dark:bg-gray-900'
                         } ${isToday(date) ? 'ring-2 ring-primary-500 bg-primary-50 dark:bg-primary-900/30' : ''} ${
                           hasUserTasks ? 'ring-1 ring-green-300 dark:ring-green-700 bg-green-50 dark:bg-green-900/20' : ''
@@ -223,7 +223,7 @@ const Calendar = () => {
                               {dayTasks.slice(0, 1).map(task => (
                                 <div
                                   key={task.task_id}
-                                  className="text-xs p-1 rounded text-white bg-green-600 dark:bg-green-700 border-2 border-green-700 dark:border-green-600"
+                                  className="card-hover text-xs p-1 rounded text-white bg-green-600 dark:bg-green-700 border-2 border-green-700 dark:border-green-600"
                                 >
                                   <div className="font-bold truncate">📋 {task.title}</div>
                                   <div className="opacity-90 font-medium">Your task</div>
@@ -236,7 +236,7 @@ const Calendar = () => {
                               {dayEvents.slice(0, hasUserTasks ? 1 : 2).map(event => (
                                 <div
                                   key={event.id}
-                                  className={`text-xs p-1 rounded text-white ${getEventTypeColor(event.type)}`}
+                                  className={`card-hover text-xs p-1 rounded text-white ${getEventTypeColor(event.type)}`}
                                 >
                                   <div className="font-bold truncate">{event.title}</div>
                                   <div className="opacity-90 font-medium">{event.time || 'All day'}</div>
@@ -264,11 +264,11 @@ const Calendar = () => {
           <div className="space-y-6">
             {/* Your Upcoming Tasks */}
             {userTasks.length > 0 && (
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+              <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
                 <h3 className="text-lg font-semibold text-green-700 mb-4">📋 Your Tasks</h3>
                 <div className="space-y-3">
                   {userTasks.slice(0, 3).map(task => (
-                    <div key={task.task_id} className="flex items-start space-x-3 p-3 bg-green-50 hover:bg-green-100 rounded-lg transition-colors border border-green-200">
+                    <div key={task.task_id} className="card-hover flex items-start space-x-3 p-3 bg-green-50 hover:bg-green-100 rounded-lg transition-colors border border-green-200">
                       <div className="w-3 h-3 rounded-full mt-1.5 bg-green-600"></div>
                       <div className="flex-1 min-w-0">
                         <p className="font-medium text-gray-900 dark:text-white truncate">{task.title}</p>
@@ -295,11 +295,11 @@ const Calendar = () => {
             )}
 
             {/* Upcoming Events */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+            <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Community Events</h3>
               <div className="space-y-3">
                 {events.length > 0 ? events.slice(0, 5).map(event => (
-                  <div key={event.id} className={`flex items-start space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors ${
+                  <div key={event.id} className={`card-hover flex items-start space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors ${
                     userTasks.length > 0 ? 'opacity-75' : ''
                   }`}>
                     <div className={`w-3 h-3 rounded-full mt-1.5 ${getEventTypeColor(event.type)}`}></div>
@@ -335,7 +335,7 @@ const Calendar = () => {
             </div>
 
             {/* Quick Stats */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+            <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">This Month</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">

@@ -11,7 +11,11 @@ const User = sequelize.define('User', {
   email: {
     type: DataTypes.STRING(255),
     allowNull: false,
-    unique: true,
+    // NOTE: Removed automatic `unique: true` to avoid Sequelize attempting
+    // to create/alter a UNIQUE index on startup which can fail on databases
+    // that already hit the max index/key limit (ER_TOO_MANY_KEYS). If you
+    // need a DB-level unique constraint, create it manually via migration.
+    unique: false,
     validate: {
       isEmail: true
     }

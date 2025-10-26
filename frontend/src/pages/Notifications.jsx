@@ -191,10 +191,10 @@ const Notifications = () => {
   const unreadCount = notifications.filter(n => !n.is_read).length;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800">
+    <div className="min-h-screen bg-gray-50 dark:bg-transparent">
       <div className="w-full max-w-4xl mx-auto space-y-4 sm:space-y-6">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6">
+        <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
@@ -223,7 +223,7 @@ const Notifications = () => {
         </div>
 
         {/* Filter Tabs */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-1">
+        <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-1">
           <div className="flex space-x-1">
             {[
               { key: 'all', label: 'All', count: notifications.length },
@@ -246,7 +246,7 @@ const Notifications = () => {
         </div>
 
         {/* Notifications List */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border">
+        <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border">
           {error && (
             <div className="p-4 border-b border-red-200 bg-red-50">
               <p className="text-red-800">{error}</p>
@@ -274,7 +274,7 @@ const Notifications = () => {
               {notifications.map((notification) => (
                 <div
                   key={notification.notification_id}
-                  className={`p-6 hover:bg-gray-50 transition-colors duration-200 ${
+                  className={`list-item-hover p-6 hover:bg-gray-50 transition-colors duration-200 ${
                     !notification.is_read ? 'bg-blue-50 border-l-4 border-primary-500' : ''
                   }`}
                 >

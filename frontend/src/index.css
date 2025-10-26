@@ -51,6 +51,24 @@
   --error-600: #dc2626;
 }
 
+/* Dark Mode Color Variables - Premium Design System */
+.dark {
+  --dark-bg-main: #0E1117;
+  --dark-bg-sidebar: #11151C;
+  --dark-bg-card: #161B22;
+  --dark-border: rgba(255, 255, 255, 0.05);
+  --dark-text-heading: #E6EDF3;
+  --dark-text-normal: #9BA3AF;
+  --dark-text-muted: #6E7681;
+  --dark-icon: #A1A8B0;
+  --dark-primary: #3B82F6;
+  --dark-primary-hover: #60A5FA;
+  --dark-success: #16A34A;
+  --dark-error: #EF4444;
+  --dark-warning: #FACC15;
+  --dark-info: #0EA5E9;
+}
+
 /* Base Styles */
 * {
   box-sizing: border-box;
@@ -177,4 +195,493 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(14, 165, 233, 0.5);
+}
+
+/* =====================================================
+   PREMIUM DARK MODE REDESIGN - Clean, Minimal, Linear-style
+   ===================================================== */
+
+/* Dark mode base - Main background */
+.dark body {
+  background: var(--dark-bg-main);
+  color: var(--dark-text-normal);
+}
+
+/* Cards and panels - Floating appearance with bold borders and glow */
+.dark .bg-white,
+.dark .bg-gray-50 {
+  background: linear-gradient(180deg, rgba(40, 45, 55, 0.95) 0%, rgba(32, 37, 47, 0.98) 100%) !important;
+  border: 2px solid rgba(59, 130, 246, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), 
+              0 4px 16px rgba(0, 0, 0, 0.6),
+              0 2px 8px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(59, 130, 246, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15),
+              inset 0 0 40px rgba(59, 130, 246, 0.08) !important;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  backdrop-filter: blur(12px) saturate(120%);
+}
+
+/* Sidebar background - Enhanced */
+.dark .bg-gray-900 {
+  background: var(--dark-bg-sidebar) !important;
+  box-shadow: inset -1px 0 0 rgba(59, 130, 246, 0.15);
+}
+
+/* Secondary cards - Floating with bold borders */
+.dark .bg-gray-800 {
+  background: linear-gradient(180deg, rgba(38, 43, 53, 0.9) 0%, rgba(30, 35, 45, 0.95) 100%) !important;
+  border: 2px solid rgba(59, 130, 246, 0.2) !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7), 
+              0 3px 12px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(59, 130, 246, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(12px) saturate(120%);
+}
+
+/* Nested/inner elements - Lighter with glow */
+.dark .bg-gray-700 {
+  background: rgba(45, 50, 60, 0.8) !important;
+  border: 1px solid rgba(59, 130, 246, 0.15) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(59, 130, 246, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+/* Hover states for cards - Intense glow and lift */
+.dark .hover\:bg-gray-50:hover,
+.dark .hover\:bg-gray-100:hover {
+  background: rgba(45, 50, 60, 0.95) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8),
+              0 6px 16px rgba(0, 0, 0, 0.6),
+              0 0 0 2px rgba(59, 130, 246, 0.4),
+              0 0 20px rgba(59, 130, 246, 0.3) !important;
+}
+
+.dark .hover\:bg-gray-700:hover {
+  background: rgba(50, 55, 65, 0.9) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6),
+              0 0 0 1px rgba(59, 130, 246, 0.3) !important;
+}
+
+.dark .hover\:bg-gray-800:hover {
+  background: rgba(45, 50, 60, 0.95) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8),
+              0 6px 16px rgba(0, 0, 0, 0.6),
+              0 0 0 2px rgba(59, 130, 246, 0.35),
+              0 0 16px rgba(59, 130, 246, 0.25) !important;
+}
+
+/* All borders - Bold with glow */
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .border-gray-400,
+.dark .border-gray-600,
+.dark .border-gray-700,
+.dark .border-gray-800,
+.dark .border {
+  border-color: rgba(59, 130, 246, 0.2) !important;
+  border-width: 1px !important;
+}
+
+/* Dividers and separators */
+.dark hr,
+.dark .divide-y > *,
+.dark .border-b,
+.dark .border-t {
+  border-color: var(--dark-border) !important;
+}
+
+/* Typography - Heading text */
+.dark .text-gray-900,
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: var(--dark-text-heading) !important;
+}
+
+/* Typography - Normal text */
+.dark .text-gray-700,
+.dark .text-gray-600 {
+  color: var(--dark-text-normal) !important;
+}
+
+/* Typography - Muted/subtext */
+.dark .text-gray-500,
+.dark .text-gray-400 {
+  color: var(--dark-text-muted) !important;
+}
+
+/* Icons */
+.dark svg {
+  color: var(--dark-icon);
+}
+
+/* Primary color accents */
+.dark .text-primary-600,
+.dark .text-primary-700 {
+  color: var(--dark-primary) !important;
+}
+
+.dark .bg-primary-600,
+.dark .bg-primary-700 {
+  background: var(--dark-primary) !important;
+}
+
+.dark .hover\:bg-primary-700:hover,
+.dark .hover\:bg-primary-600:hover {
+  background: var(--dark-primary-hover) !important;
+}
+
+.dark .border-primary-500,
+.dark .border-primary-600 {
+  border-color: var(--dark-primary) !important;
+}
+
+/* Success states */
+.dark .text-green-600,
+.dark .text-green-700,
+.dark .text-green-800 {
+  color: var(--dark-success) !important;
+}
+
+.dark .bg-green-50,
+.dark .bg-green-100 {
+  background: rgba(22, 163, 74, 0.1) !important;
+}
+
+/* Error states */
+.dark .text-red-600,
+.dark .text-red-700,
+.dark .text-red-800 {
+  color: var(--dark-error) !important;
+}
+
+.dark .bg-red-50,
+.dark .bg-red-100 {
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Warning states */
+.dark .text-yellow-600,
+.dark .text-yellow-700 {
+  color: var(--dark-warning) !important;
+}
+
+.dark .bg-yellow-50,
+.dark .bg-yellow-100 {
+  background: rgba(250, 204, 21, 0.1) !important;
+}
+
+/* Info/Blue states */
+.dark .text-blue-600,
+.dark .text-blue-700,
+.dark .text-blue-800 {
+  color: var(--dark-info) !important;
+}
+
+.dark .bg-blue-50,
+.dark .bg-blue-100 {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Purple states */
+.dark .text-purple-600,
+.dark .text-purple-700 {
+  color: #A78BFA !important;
+}
+
+.dark .bg-purple-50,
+.dark .bg-purple-100 {
+  background: rgba(167, 139, 250, 0.1) !important;
+}
+
+/* Glass card enhancement - Premium visible depth */
+.dark .glass-card {
+  background: linear-gradient(180deg, rgba(30, 35, 45, 0.85) 0%, rgba(22, 27, 36, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7),
+              0 4px 16px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15),
+              inset 0 0 40px rgba(59, 130, 246, 0.06);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+}
+
+/* Scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: rgba(22, 27, 34, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* =====================================================
+   Enhanced Hover Effects System
+   ===================================================== */
+
+/* Card hover - Lift with enhanced visible glow */
+.card-hover {
+  transition: transform .25s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow .25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color .25s ease;
+  position: relative;
+}
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4),
+              0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.dark .card-hover:hover {
+  border-color: rgba(59, 130, 246, 0.6) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.9), 
+              0 8px 24px rgba(0, 0, 0, 0.6),
+              0 0 0 1px rgba(59, 130, 246, 0.5),
+              inset 0 0 50px rgba(59, 130, 246, 0.08);
+  backdrop-filter: blur(20px) saturate(140%);
+}
+
+/* Button popup effect - Scale + color shift */
+.btn-hover {
+  transition: transform .2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow .2s ease,
+              background .2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-hover:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+.btn-hover:active {
+  transform: scale(0.98);
+}
+
+/* Primary button with gradient */
+.btn-primary {
+  background: var(--dark-primary);
+  transition: all .2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-primary:hover {
+  background: var(--dark-primary-hover);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+.dark .btn-primary {
+  background: var(--dark-primary);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+.dark .btn-primary:hover {
+  background: var(--dark-primary-hover);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Outline card hover - Border glow effect */
+.card-outline-hover {
+  transition: all .25s ease;
+  position: relative;
+}
+.card-outline-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.4),
+              0 15px 40px rgba(2,6,23,0.3);
+}
+.dark .card-outline-hover:hover {
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.5),
+              0 15px 50px rgba(2,6,23,0.8);
+}
+
+/* Stat card pulse effect - Enhanced visible glow */
+.stat-card-hover {
+  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.stat-card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25),
+              0 6px 15px rgba(59, 130, 246, 0.15);
+}
+.dark .stat-card-hover:hover {
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.5),
+              0 8px 20px rgba(0, 0, 0, 0.7),
+              inset 0 0 60px rgba(59, 130, 246, 0.12),
+              0 0 0 1px rgba(59, 130, 246, 0.4);
+  backdrop-filter: blur(20px) saturate(150%);
+}
+
+/* Icon button hover - Spin + scale */
+.icon-btn-hover {
+  transition: all .2s ease;
+}
+.icon-btn-hover:hover {
+  transform: scale(1.15) rotate(5deg);
+  color: var(--primary-500);
+}
+.dark .icon-btn-hover:hover {
+  color: var(--primary-400);
+}
+
+/* List item hover - Slide in effect */
+.list-item-hover {
+  transition: all .2s ease;
+  position: relative;
+}
+.list-item-hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 70%;
+  background: linear-gradient(90deg, var(--primary-500), transparent);
+  border-radius: 0 4px 4px 0;
+  transition: width .2s ease;
+  opacity: 0;
+}
+.list-item-hover:hover::before {
+  width: 4px;
+  opacity: 1;
+}
+.list-item-hover:hover {
+  padding-left: 12px;
+  background-color: rgba(14, 165, 233, 0.05);
+  color: #0284c7 !important;
+}
+.dark .list-item-hover:hover {
+  background-color: rgba(14, 165, 233, 0.1);
+  color: #60A5FA !important;
+}
+
+/* Link hover - Underline slide */
+.link-hover {
+  position: relative;
+  transition: color .2s ease;
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-500);
+  transition: width .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-hover:hover::after {
+  width: 100%;
+}
+.link-hover:hover {
+  color: var(--primary-600);
+}
+.dark .link-hover:hover {
+  color: var(--primary-400);
+}
+
+/* Avatar hover - Glow effect */
+.avatar-hover {
+  transition: all .2s ease;
+  position: relative;
+}
+.avatar-hover:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4),
+              0 0 40px rgba(14, 165, 233, 0.2);
+}
+
+/* Badge hover - Pulse */
+.badge-hover {
+  transition: all .2s ease;
+}
+.badge-hover:hover {
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+/* Input focus - Glow ring */
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15),
+              0 4px 12px rgba(14, 165, 233, 0.1);
+}
+
+.dark .input-field {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #e6eef8;
+}
+
+/* Softer text colors */
+.dark .text-gray-900 { color: #e6eef8 !important; }
+.dark .text-gray-700 { color: rgba(230,238,248,0.88) !important; }
+.dark .text-gray-600 { color: rgba(230,238,248,0.75) !important; }
+
+/* Links and interactive elements */
+.dark a:hover, .dark .hover\:text-primary-700:hover { color: var(--primary-300) !important; }
+
+/* Scrollbar for dark */
+.dark ::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+.dark ::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.18); }
+
+/* Make header/sidebar separators less aggressive */
+.dark .shadow-sm { box-shadow: 0 4px 18px rgba(2,6,23,0.45) !important; }
+
+/* Small utility: make rounded avatars pop in dark */
+.dark .rounded-avatar { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); box-shadow: 0 6px 20px rgba(2,6,23,0.45); }
+
+/* Keep buttons accessible: ensure focus outline visible */
+.dark .focus-visible { outline: 3px solid rgba(14,165,233,0.12); outline-offset: 2px; }
+
+/* Join Community Button - Special ripple & glow effect */
+.btn-join-community {
+  position: relative;
+  overflow: hidden;
+  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-join-community::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.4), transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width .6s ease, height .6s ease;
+}
+.btn-join-community:hover::before {
+  width: 300%;
+  height: 300%;
+}
+.btn-join-community:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3),
+              0 4px 12px rgba(14, 165, 233, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: var(--primary-400);
+}
+.dark .btn-join-community:hover {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5),
+              0 4px 12px rgba(59, 130, 246, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: var(--dark-primary-hover);
+  background: rgba(59, 130, 246, 0.15);
+}
+.btn-join-community:active {
+  transform: translateY(-1px) scale(1.01);
+}
+
+/* Header must be fully opaque in dark mode */
+.dark header {
+  background-color: var(--dark-bg-sidebar) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--dark-border) !important;
 }

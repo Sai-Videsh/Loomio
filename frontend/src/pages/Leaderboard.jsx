@@ -120,26 +120,26 @@ const Leaderboard = () => {
 
         {/* Current User Rank */}
         {currentUserRank && (
-          <div className="bg-gradient-to-r from-primary-50 to-purple-50 rounded-xl p-4 sm:p-6 border border-primary-200">
+          <div className="bg-gradient-to-r from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20 rounded-xl p-4 sm:p-6 border border-primary-200 dark:border-primary-800/30">
             <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4">
               <div className="flex items-center space-x-3 sm:space-x-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center">
                   <span className="text-xl sm:text-2xl font-bold text-white">#{currentUserRank}</span>
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">Your Rank</p>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Your Rank</p>
                   <p className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white">{user?.full_name}</p>
-                  <p className="text-xs sm:text-sm text-primary-600 font-medium">
+                  <p className="text-xs sm:text-sm text-primary-600 dark:text-primary-400 font-medium">
                     {getPointsDisplay(user?.points)} points
                   </p>
                 </div>
               </div>
               {user?.current_streak > 0 && (
-                <div className="flex items-center space-x-2 bg-white dark:bg-gray-800 rounded-lg px-3 sm:px-4 py-2 shadow-sm">
+                <div className="flex items-center space-x-2 bg-white dark:bg-gray-800/60 rounded-lg px-3 sm:px-4 py-2 shadow-sm border border-transparent dark:border-gray-700">
                   <FireIcon className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" />
                   <div>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Streak</p>
-                    <p className="text-base sm:text-lg font-bold text-orange-600">{user.current_streak} days</p>
+                    <p className="text-base sm:text-lg font-bold text-orange-600 dark:text-orange-400">{user.current_streak} days</p>
                   </div>
                 </div>
               )}
@@ -156,7 +156,7 @@ const Leaderboard = () => {
       )}
 
       {/* Leaderboard List */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
         {leaderboard.length === 0 ? (
           <div className="text-center py-12">
             <ChartBarIcon className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
@@ -167,7 +167,7 @@ const Leaderboard = () => {
             {leaderboard.map((entry, index) => (
               <div
                 key={entry.user_id}
-                className={`flex items-center justify-between p-5 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${
+                className={`list-item-hover flex items-center justify-between p-5 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${
                   entry.user_id === user?.user_id ? 'bg-primary-50 dark:bg-primary-900/30' : ''
                 }`}
               >

@@ -70,7 +70,7 @@ const Header = ({ onMenuClick }) => {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40 transition-colors duration-300">
+    <header className="glass-card bg-white/40 dark:!bg-gray-900 backdrop-blur-xl shadow-sm border-b border-gray-200/50 dark:border-gray-800 sticky top-0 z-40 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Mobile menu button */}
@@ -99,7 +99,7 @@ const Header = ({ onMenuClick }) => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="p-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 icon-btn-hover"
               aria-label="Toggle theme"
             >
               {isDark ? (
@@ -113,7 +113,7 @@ const Header = ({ onMenuClick }) => {
             <div className="relative">
               <button
                 onClick={() => setShowNotifications(!showNotifications)}
-                className="relative p-3 text-secondary-400 hover:text-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-xl hover:bg-white/60 transition-all duration-200 transform hover:scale-105"
+                className="relative p-3 text-secondary-400 hover:text-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-xl hover:bg-white/60 transition-all duration-200 icon-btn-hover"
               >
                 <BellIcon className="h-6 w-6" />
                 {notificationCount > 0 && (
@@ -208,7 +208,7 @@ const Header = ({ onMenuClick }) => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-2xl shadow-2xl py-2 bg-white dark:bg-gray-800 backdrop-blur-lg border border-gray-200 dark:border-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-2xl shadow-2xl py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                   <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
                     <p className="text-sm font-bold text-gray-900 dark:text-white">{user?.full_name}</p>
                     <p className="text-xs text-gray-600 dark:text-gray-400">{user?.email}</p>

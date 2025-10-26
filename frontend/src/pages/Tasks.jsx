@@ -424,10 +424,10 @@ const Tasks = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800">
+    <div className="min-h-screen bg-gray-50 dark:bg-transparent">
       <div className="w-full max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8">
+        <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
@@ -441,7 +441,7 @@ const Tasks = () => {
               {canCreateTasks() && (
                 <button
                   onClick={() => setShowCreateForm(true)}
-                  className="flex items-center px-3 sm:px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                  className="flex items-center px-3 sm:px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm btn-hover btn-primary"
                 >
                   <PlusIcon className="w-4 h-4 mr-2" />
                   <span className="hidden sm:inline">Create Task</span>
@@ -472,7 +472,7 @@ const Tasks = () => {
         <div className="space-y-4">
           {/* Community Selector */}
           {user?.communities && user.communities.length > 1 && (
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4">
+            <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4">
               <label htmlFor="community-select" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Select Community
               </label>
@@ -497,7 +497,7 @@ const Tasks = () => {
           )}
 
           {/* Filter Tabs */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-1">
+          <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-1">
             <div className="flex space-x-1">
               {[
                 { key: 'all', label: 'All Tasks' },
@@ -510,8 +510,8 @@ const Tasks = () => {
                   onClick={() => setFilter(tab.key)}
                   className={`flex-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
                     filter === tab.key
-                      ? 'bg-primary-600 text-white'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                      ? 'bg-primary-600 text-white btn-primary'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100 btn-hover'
                   }`}
                 >
                   {tab.label}
@@ -522,7 +522,7 @@ const Tasks = () => {
         </div>
 
         {!user?.communities || user.communities.length === 0 ? (
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-12 text-center">
+          <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-12 text-center">
             <ClipboardDocumentListIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No Communities Found</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">You need to be part of a community to view and manage tasks.</p>
@@ -534,7 +534,7 @@ const Tasks = () => {
             </button>
           </div>
         ) : !selectedCommunity ? (
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-12 text-center">
+          <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-12 text-center">
             <ClipboardDocumentListIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Select a Community</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">Please select a community above to view and manage tasks.</p>
@@ -577,7 +577,7 @@ const Tasks = () => {
                   return (
                     <div 
                       key={task.task_id} 
-                      className="bg-white dark:bg-gray-800 border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all cursor-pointer"
+                      className="card-hover bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-all cursor-pointer"
                       onClick={() => {
                         setSelectedTask(task);
                         setShowTaskDetailModal(true);

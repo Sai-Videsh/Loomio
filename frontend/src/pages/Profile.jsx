@@ -130,11 +130,11 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800">
+    <div className="min-h-screen bg-gray-50 dark:bg-transparent">
       <div className="w-full max-w-6xl mx-auto space-y-4 sm:space-y-6">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8">
-          <div className="flex items-center justify-between">
+        <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8">
+          <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
                 Profile
@@ -166,7 +166,7 @@ const Profile = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Profile Avatar Card */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+          <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
             <div className="text-center">
               <div className="w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">

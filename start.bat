@@ -37,7 +37,36 @@ if !errorlevel! neq 0 (
 :: =====================================================
 echo.
 echo [2/5] Testing Database Connection...
-mysql -u root -p2611 -e "USE loomio_db; SELECT 'Connected' as Status;" >nul 2>&1
+:: Load .env variables (if present) so the script uses the same DB credentials
+if exist ".env" (
+    echo Loading environment variables from .env...
+    for /f "usebackq tokens=1* delims==" %%A in (".env") do (
+        set "key=%%A"
+        set "value=%%B"
+        :: trim leading spaces (simple) and skip comment lines starting with #
+        if defined key (
+            if not "!key:~0,1!"=="#" (
+                set "!key!=!value!"
+            )
+        )
+    )
+)
+
+:: Use environment variables loaded from .env (DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME)
+set "MYSQL_USER=%DB_USER%"
+set "MYSQL_PASS=%DB_PASSWORD%"
+set "MYSQL_HOST=%DB_HOST%"
+set "MYSQL_PORT=%DB_PORT%"
+set "MYSQL_DB=%DB_NAME%"
+
+:: Fallback to defaults if any variable is empty
+if not defined MYSQL_USER set "MYSQL_USER=root"
+if not defined MYSQL_PASS set "MYSQL_PASS=2611"
+if not defined MYSQL_HOST set "MYSQL_HOST=localhost"
+if not defined MYSQL_PORT set "MYSQL_PORT=3306"
+if not defined MYSQL_DB set "MYSQL_DB=loomio_db"
+
+mysql -u %MYSQL_USER% -p%MYSQL_PASS% -h %MYSQL_HOST% -P %MYSQL_PORT% -e "USE %MYSQL_DB%; SELECT 'Connected' as Status;" >nul 2>&1
 if !errorlevel! neq 0 (
     echo.
     echo ❌ ERROR: Cannot connect to loomio_db database!

@@ -120,7 +120,7 @@ const Dashboard = () => {
   return (
     <div className="w-full max-w-7xl mx-auto space-y-4 sm:space-y-6">
       {/* Welcome Header */}
-      <div className="bg-white dark:bg-gray-800 dark:bg-gray-800 dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+      <div className="glass-card rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white dark:text-white dark:text-white mb-1 sm:mb-2">
@@ -143,7 +143,7 @@ const Dashboard = () => {
         {stats.map((stat) => (
           <div 
             key={stat.id} 
-            className="bg-white dark:bg-gray-800 dark:bg-gray-800 dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6 hover:shadow-md transition-shadow duration-200"
+            className="glass-card card-hover rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6 transition-shadow duration-200"
           >
             <div className="flex items-center justify-between">
               <div className="flex-1">
@@ -177,7 +177,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         {/* Recent Activity */}
         <div className="lg:col-span-2">
-          <div className="bg-white dark:bg-gray-800 dark:bg-gray-800 dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+          <div className="glass-card rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white dark:text-white flex items-center">
                 <ChartBarIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-gray-600 dark:text-gray-300 dark:text-gray-300" />
@@ -227,7 +227,7 @@ const Dashboard = () => {
         {/* Quick Actions */}
         <div className="space-y-4 sm:space-y-6">
           {/* Community Info */}
-          <div className="bg-white dark:bg-gray-800 dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6">
+          <div className="glass-card rounded-xl shadow-sm border p-4 sm:p-6">
             <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white dark:text-white mb-4 flex items-center">
               <UserGroupIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-gray-600 dark:text-gray-300 dark:text-gray-300" />
               Communities ({user?.communities?.length || 0})
@@ -235,7 +235,7 @@ const Dashboard = () => {
             {user?.communities && user.communities.length > 0 ? (
               <div className="space-y-3">
                 {user.communities.slice(0, 2).map((community) => (
-                  <div key={community.community_id} className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div key={community.community_id} className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg card-hover">
                     <p className="text-base font-semibold text-gray-900 dark:text-white dark:text-white">{community.name}</p>
                     <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">{community.description || 'No description'}</p>
                     <div className="mt-2 flex items-center justify-between">
@@ -272,7 +272,7 @@ const Dashboard = () => {
           </div>
 
           {/* Quick Stats */}
-          <div className="bg-white dark:bg-gray-800 dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6">
+          <div className="glass-card rounded-xl shadow-sm border p-4 sm:p-6">
             <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white dark:text-white mb-4">Summary</h3>
             <div className="space-y-3">
               <div className="flex justify-between items-center">

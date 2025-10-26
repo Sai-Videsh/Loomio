@@ -106,9 +106,12 @@ const startServer = async () => {
     // 2. Use proper database migrations (see /backend/migrations folder)
     // 3. Run migrations manually or via CI/CD pipeline
     //
-    // Current setting is safe for local development
-    await sequelize.sync({ force: false });
-    console.log('✅ Database synced and tables created.');
+  // Current setting is safe for local development. To avoid Sequelize
+  // issuing ALTER statements that try to modify existing columns/indexes
+  // (which can fail if the DB already has many indexes), explicitly
+  // disable alterations here. Use migrations for schema changes.
+  await sequelize.sync({ force: false, alter: false });
+  console.log('✅ Database synced (no alter). Tables created if missing.');
     
     app.listen(PORT, () => {
       console.log(`🚀 Server is running on port ${PORT}`);

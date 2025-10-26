@@ -151,11 +151,11 @@ const Communities = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800">
+    <div className="min-h-screen bg-gray-50 dark:bg-transparent">
       
       <div className="relative z-10 w-full max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8">
+        <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
@@ -178,7 +178,7 @@ const Communities = () => {
           {(user?.role === 'platform_admin' || user?.role === 'community_admin') && (
             <button
               onClick={() => setShowCreateForm(true)}
-              className="flex items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-sm"
+              className="flex items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-sm btn-hover btn-primary"
             >
               <PlusIcon className="w-5 h-5 mr-2" />
               Create Community
@@ -186,7 +186,7 @@ const Communities = () => {
           )}
           <button
             onClick={() => setShowJoinForm(true)}
-            className="flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-800 border border-gray-300 hover:bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-semibold rounded-lg transition-colors duration-200 shadow-sm"
+            className="btn-join-community flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-800 border border-gray-300 hover:bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-semibold rounded-lg transition-colors duration-200 shadow-sm"
           >
             <QrCodeIcon className="w-5 h-5 mr-2" />
             Join Community
@@ -212,7 +212,7 @@ const Communities = () => {
 
       {/* Your Communities */}
       {user?.communities && user.communities.length > 0 && (
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+        <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white">Your Communities</h2>
             <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -222,23 +222,23 @@ const Communities = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {user.communities.map((community) => (
-              <div key={community.community_id} className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+              <div key={community.community_id} className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 card-hover">
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center">
+                  <div className="flex items-center space-x-2 flex-1 min-w-0">
+                    <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <UsersIcon className="w-4 h-4 text-primary-600" />
                     </div>
-                    <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">{community.name}</h3>
+                    <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white truncate">{community.name}</h3>
                   </div>
-                  <div className="px-2 py-1 bg-gray-200 text-gray-600 dark:text-gray-300 rounded text-xs font-medium">
+                  <div className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs font-medium flex-shrink-0 ml-2">
                     {community.community_code}
                   </div>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">{community.description || 'No description'}</p>
                 <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-                  <div className="flex flex-col">
-                    <span className="capitalize">{community.UserCommunity?.role?.replace('_', ' ')}</span>
-                    <span>Joined {new Date(community.UserCommunity?.joined_at).toLocaleDateString()}</span>
+                  <div className="flex flex-col space-y-1">
+                    <span className="capitalize font-medium">{community.UserCommunity?.role?.replace('_', ' ')}</span>
+                    <span className="text-gray-400 dark:text-gray-500">Joined {new Date(community.UserCommunity?.joined_at).toLocaleDateString()}</span>
                   </div>
                   {(user?.role === 'platform_admin' || 
                     (community.created_by === user?.user_id)) && (
@@ -258,7 +258,7 @@ const Communities = () => {
       )}
 
       {/* Available Communities */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6">
+      <div className="glass-card bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-4 sm:p-6">
         <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">Available Communities</h2>
         
         {isLoading ? (
@@ -290,11 +290,11 @@ const Communities = () => {
             {communities.map((community) => (
               <div 
                 key={community.community_id}
-                className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200"
+                className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md transition-shadow duration-200 card-hover"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <UserGroupIcon className="w-5 h-5 text-primary-600" />
+                  <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+                    <UserGroupIcon className="w-5 h-5 text-primary-600 dark:text-primary-400" />
                   </div>
                   <div className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs font-medium">
                     {community.community_code}
@@ -307,8 +307,8 @@ const Communities = () => {
                 {/* Creator information */}
                 {community.creator && (
                   <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
-                    <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center mr-2">
-                      <span className="text-primary-600 text-xs font-medium">
+                    <div className="w-6 h-6 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-2">
+                      <span className="text-primary-600 dark:text-primary-400 text-xs font-medium">
                         {community.creator.full_name?.charAt(0)?.toUpperCase() || 'U'}
                       </span>
                     </div>
@@ -316,7 +316,7 @@ const Communities = () => {
                   </div>
                 )}
                 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between pt-2">
                   <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                     <UsersIcon className="w-4 h-4 mr-1" />
                     <span>{community.memberCount || 0} members</span>
@@ -415,7 +415,7 @@ const Communities = () => {
                     const value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
                     setJoinCode(value);
                   }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-center text-lg font-mono tracking-widest"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-center text-lg font-mono tracking-widest bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                   placeholder="ABC123"
                   maxLength="6"
                   required

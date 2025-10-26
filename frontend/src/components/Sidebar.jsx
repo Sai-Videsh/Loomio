@@ -36,15 +36,15 @@ const Sidebar = ({ isOpen, onClose }) => {
       {/* Mobile overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
           onClick={onClose}
         />
       )}
       
       {/* Sidebar */}
       <div className={`
-        flex flex-col w-72 bg-white dark:bg-gray-900 shadow-xl border-r border-gray-200 dark:border-gray-800
-        fixed lg:relative inset-y-0 left-0 z-50 
+        flex flex-col w-72 glass-card bg-white dark:bg-gray-900 shadow-xl border-r border-gray-200 dark:border-gray-800
+        fixed lg:relative inset-y-0 left-0 z-40 lg:z-0
         transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
@@ -57,7 +57,7 @@ const Sidebar = ({ isOpen, onClose }) => {
         </button>
 
         {/* Logo/Brand */}
-      <div className="px-6 py-8 border-b border-gray-200 dark:border-gray-800">
+      <div className="px-6 py-8 dark:py-5 border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 rounded-lg flex items-center justify-center">
             <img src={loomioLogo} alt="Loomio" className="w-10 h-10 object-contain" />
@@ -101,15 +101,15 @@ const Sidebar = ({ isOpen, onClose }) => {
             to={item.href}
             onClick={() => onClose && onClose()}
             className={({ isActive }) =>
-              `group flex items-center px-3 py-2.5 text-sm font-semibold rounded-lg transition-colors duration-200 ${
+              `group flex items-center px-3 py-2.5 text-sm font-semibold rounded-lg list-item-hover transition-all duration-200 relative overflow-hidden ${
                 isActive
                   ? 'bg-primary-600 text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 dark:hover:text-primary-400'
               }`
             }
           >
-            <item.icon className="w-5 h-5 mr-3 flex-shrink-0" />
-            <span>{item.name}</span>
+            <item.icon className="w-5 h-5 mr-3 flex-shrink-0 relative z-10" />
+            <span className="relative z-10">{item.name}</span>
           </NavLink>
         ))}
       </nav>

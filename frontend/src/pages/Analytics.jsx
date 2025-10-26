@@ -119,7 +119,7 @@ const Analytics = () => {
         <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-4">{title}</h3>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5">
           {statItems.map((stat, index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6 hover:shadow-md transition-shadow duration-200">
+            <div key={index} className="glass-card card-hover rounded-xl shadow-sm border p-6 hover:shadow-md transition-shadow duration-200">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">{stat.name}</p>
@@ -149,7 +149,7 @@ const Analytics = () => {
   };
 
   const renderTopContributors = (contributors) => (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+    <div className="glass-card rounded-xl shadow-sm border p-6">
       <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center">
         <TrophyIcon className="w-5 h-5 mr-2 text-gray-600 dark:text-gray-300" />
         Top Contributors
@@ -182,7 +182,7 @@ const Analytics = () => {
   );
 
   const renderTopCommunities = (communities) => (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+    <div className="glass-card rounded-xl shadow-sm border p-6">
       <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center">
         <BuildingOffice2Icon className="w-5 h-5 mr-2 text-gray-600 dark:text-gray-300" />
         Top Communities
@@ -215,7 +215,7 @@ const Analytics = () => {
   );
 
   const renderGrowthChart = (data, title) => (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+    <div className="glass-card card-hover rounded-xl shadow-sm border p-6">
       <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center">
         <ChartBarIcon className="w-5 h-5 mr-2 text-gray-600 dark:text-gray-300" />
         {title}
@@ -263,7 +263,7 @@ const Analytics = () => {
   return (
     <div className="max-w-7xl mx-auto space-y-6 p-6">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+      <div className="glass-card rounded-xl shadow-sm border p-6">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
@@ -308,7 +308,7 @@ const Analytics = () => {
             {/* Community Analytics */}
             {user.role === 'community_admin' && (
               <>
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+                <div className="glass-card rounded-xl shadow-sm border p-6">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                     <UserGroupIcon className="w-5 h-5 mr-2 text-gray-600 dark:text-gray-300" />
                     Member Activity
@@ -316,7 +316,7 @@ const Analytics = () => {
                   <div className="space-y-3 max-h-96 overflow-y-auto">
                     {analytics.memberActivity && analytics.memberActivity.length > 0 ? 
                       analytics.memberActivity.map((member) => (
-                        <div key={member.user_id} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <div key={member.user_id} className="list-item-hover flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                           <div className="flex-1">
                             <p className="font-medium text-gray-900 dark:text-white">{member.full_name}</p>
                             <p className="text-sm text-gray-600 dark:text-gray-300">{member.email}</p>
@@ -346,7 +346,7 @@ const Analytics = () => {
                 </div>
                 
                 {analytics.community && (
-                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border p-6">
+                  <div className="glass-card rounded-xl shadow-sm border p-6">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Community Info</h3>
                     <div className="space-y-3">
                       <div>

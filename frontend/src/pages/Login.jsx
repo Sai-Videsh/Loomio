@@ -99,7 +99,7 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:bg-transparent flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       {/* Theme Toggle - Top Right */}
       <div className="absolute top-4 right-4">
         <button
@@ -131,7 +131,7 @@ const Login = () => {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white dark:bg-gray-800 py-8 px-4 shadow-xl rounded-xl border border-gray-200 dark:border-gray-700 sm:px-10 transition-colors duration-300">
+        <div className="glass-card card-hover bg-white dark:bg-gray-800 py-8 px-4 shadow-xl rounded-xl border border-gray-200 dark:border-gray-700 sm:px-10 transition-colors duration-300">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* General Error */}
             {errors.general && (
